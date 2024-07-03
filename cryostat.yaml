@@ -1,0 +1,14 @@
+cryo_4K:
+  radius: 0.5
+  slice: 20
+  thickness: 0.005
+  density: 2710
+  material: DATA_1100
+  suffix: _4K
+cryo_40K:
+  radius: 0.6
+  slice: 20
+  thickness: 0.005
+  density: 2710
+  material: DATA_1100
+  suffix: _40K
