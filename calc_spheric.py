@@ -21,6 +21,8 @@ def main():
                         help='Path to the PTC load curve file.')
     parser.add_argument('out_path',
                         help='Path to the output file.')
+    parser.add_argument('-s', '--step', type=int, default=200000,
+                        help='Number of simulation steps.')
 
     args = parser.parse_args()
     with open(args.yaml_path, 'r') as yml:
@@ -40,7 +42,7 @@ def main():
     time_current = 0.
     dt_now = 20.
 
-    for i in tqdm(range(200000)):
+    for i in tqdm(range(args.step)):
         q_flow = calc_flow(G, dt_now)
         q1_ptc, q2_ptc = run_ptc(G, dt_now, ptc, '0_40K', '0_4K')
         q_flow['0_40K'] += q1_ptc
